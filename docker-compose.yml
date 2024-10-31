@@ -57,6 +57,23 @@ services:
     ports:
       - "8082:8082"
 
+  catalogwebapi:
+    build:
+      context: .
+      dockerfile: CatalogWebAPI/Catalog.API/Dockerfile
+    container_name: CatalogWebAPI
+    image: catalogwebapi
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8083
+      - "ConnectionStrings:dbConnectionString=Server=postgres;Port=5432;Database=CatalogDb;User Id=admin;Password=adminPassword;"
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+    depends_on:
+      - postgres
+    ports:
+      - "8083:8083"  
+
 volumes:
   postgres_data:
   mysql_data:
