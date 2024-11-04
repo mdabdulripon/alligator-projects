@@ -3,3 +3,20 @@ AlligatorShopServices/
 CatalogWebAPI/
 MerchantWebAPI/
 UsersWebAPI/
+BlogWebAPI/
+FileUploadWebAPI/
+
+.DS_Store
+
+### VS Code ###
+.vscode/
+
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/

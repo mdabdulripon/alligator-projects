@@ -26,12 +26,12 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data/
 
-  userswebapi:
+  users:
     build:
       context: .
       dockerfile: UsersWebAPI/Dockerfile
     container_name: UsersWebAPI
-    image: userswebapi
+    image: users
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/users_db?serverTimezone=UTC
       SPRING_DATASOURCE_USERNAME: admin
@@ -42,12 +42,12 @@ services:
     ports:
       - "8081:8081"
 
-  merchantwebapi:
+  merchant:
     build:
       context: .
       dockerfile: MerchantWebAPI/Merchant.API/Dockerfile
     container_name: MerchantWebAPI
-    image: merchantwebapi
+    image: merchant
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:8082
@@ -57,12 +57,12 @@ services:
     ports:
       - "8082:8082"
 
-  catalogwebapi:
+  catalog:
     build:
       context: .
       dockerfile: CatalogWebAPI/Catalog.API/Dockerfile
     container_name: CatalogWebAPI
-    image: catalogwebapi
+    image: catalog
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:8083
@@ -73,6 +73,36 @@ services:
       - postgres
     ports:
       - "8083:8083"  
+
+  blog:
+    build:
+      context: .
+      dockerfile: BlogWebAPI/Dockerfile
+    container_name: BlogWebAPI
+    image: blog
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/blogs_db?serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: adminPassword
+    depends_on:
+      - mysql
+    ports:
+      - "8088:8088"        
+  
+  fileupload:
+    build:
+      context: .
+      dockerfile: FileUploadWebAPI/Dockerfile
+    container_name: FileUploadWebAPI
+    image: fileupload
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/file_upload_db?serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: adminPassword
+    depends_on:
+      - mysql
+    ports:
+      - "8089:8089"        
 
 volumes:
   postgres_data:

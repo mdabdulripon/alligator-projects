@@ -7,14 +7,14 @@
 ```
 / Alligator-Projects
 │
-├── /UserWebAPI
+├── / UserWebAPI
 │   ├── Dockerfile
 │   ├── src/
 │   │   └── ...
 │   └── target/
 │       └── ProjectA-0.0.1-SNAPSHOT.jar
 │
-├── /MerchantWebAPI
+├── / MerchantWebAPI
 ├────── Merchant.API
 │       ├── Dockerfile
 │       └── bin/
@@ -24,7 +24,7 @@
 ├────── Merchant.Core
 ├────── Merchant.Infrastructure
 │
-├── /CatalogWebAPI
+├── / CatalogWebAPI
 ├────── Catalog.API
 │       ├── Dockerfile
 │       └── bin/
