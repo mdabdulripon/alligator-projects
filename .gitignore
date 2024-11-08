@@ -3,7 +3,7 @@ AlligatorShopServices/
 CatalogWebAPI/
 MerchantWebAPI/
 UsersWebAPI/
-BlogWebAPI/
+BlogPostWebAPI/
 FileUploadWebAPI/
 
 .DS_Store

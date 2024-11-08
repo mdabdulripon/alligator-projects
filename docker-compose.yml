@@ -74,12 +74,12 @@ services:
     ports:
       - "8083:8083"  
 
-  blog:
+  blogpost:
     build:
       context: .
-      dockerfile: BlogWebAPI/Dockerfile
-    container_name: BlogWebAPI
-    image: blog
+      dockerfile: BlogPostWebAPI/Dockerfile
+    container_name: BlogPostWebAPI
+    image: blogpost
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/blogs_db?serverTimezone=UTC
       SPRING_DATASOURCE_USERNAME: admin
