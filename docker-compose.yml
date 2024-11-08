@@ -81,7 +81,7 @@ services:
     container_name: BlogPostWebAPI
     image: blogpost
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/blogs_db?serverTimezone=UTC
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/blogpost_db?serverTimezone=UTC
       SPRING_DATASOURCE_USERNAME: admin
       SPRING_DATASOURCE_PASSWORD: adminPassword
     depends_on:
